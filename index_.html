@@ -1,0 +1,1198 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Presentación: Métodos de Localización de Proyectos</title>
+  <meta name="description" content="Una presentación sobre métodos de localización de proyectos, basada en Nassir Sapag Chain.">
+  <meta name="author" content="Nassir Sapag Chain (contenido), Gemini (adaptación)">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+
+        <section data-transition="zoom" data-background-color="#000000">
+          <div style="border: 3px solid #555; padding: 40px; font-family: 'Courier New', Courier, monospace;">
+            <h2 style="color: #e74c3c; text-transform: uppercase;">STREAMING ERROR</h2>
+            <p style="color: #ccc;">CODE: <span style="color: white;">NET_ERR_UNAVAILABLE</span></p>
+            <p class="fragment" style="color: #e67e22;">Durante la final del mundial.</p>
+          </div>
+        </section>
+
+        <section data-transition="fade" data-background-color="#000000">
+          <h2 class="r-fit-text" style="font-weight: 300; color: #fff;">
+            La respuesta no está en el <span style="text-decoration: line-through;">código</span>.
+          </h2>
+          <h2 class="r-fit-text fragment" style="font-weight: bold; color: #3498db;">
+            Está en la UBICACIÓN.
+          </h2>
+        </section>
+
+        <section data-auto-animate data-background-color="#111">
+            <h3 style="color: #eee;">La infraestructura global de AWS</h3>
+            <div data-id="map-container" style="position: relative; width: 800px; height: 400px;">
+                <div style="width: 100%; height: 100%; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22><defs><pattern id=%22p%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22><circle cx=%222.5%22 cy=%222.5%22 r=%221%22 fill=%22%23222%22/></pattern></defs><rect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23p)%22/></svg>');">
+                </div>
+                <div data-id="tokyo-region" class="fragment" style="position: absolute; top: 35%; left: 80%; width: 20px; height: 20px; background: #3498db; border-radius: 50%; box-shadow: 0 0 15px #3498db;"></div>
+                <div data-id="london-region" class="fragment" style="position: absolute; top: 30%; left: 48%; width: 20px; height: 20px; background: #3498db; border-radius: 50%; box-shadow: 0 0 15px #3498db;"></div>
+                <div class="fragment" style="position: absolute; top: 50%; left: 15%; width: 20px; height: 20px; background: #3498db; border-radius: 50%; box-shadow: 0 0 15px #3498db;"></div>
+                <div class="fragment" style="position: absolute; top: 28%; left: 47%; width: 8px; height: 8px; background: #fff; border-radius: 50%;"></div>
+                <div class="fragment" style="position: absolute; top: 32%; left: 49%; width: 8px; height: 8px; background: #fff; border-radius: 50%;"></div>
+                <div class="fragment" style="position: absolute; top: 31%; left: 46%; width: 8px; height: 8px; background: #fff; border-radius: 50%;"></div>
+
+                <p class="fragment" style="position: absolute; bottom: 5%; left: 5%; color: #777; font-size: 0.7em;">Centros de datos físicamente separados.</p>
+            </div>
+        </section>
+
+        <section data-auto-animate data-background-color="#111">
+            <h3 style="color: #eee;">Para que puedas ver contenido en alta calidad...</h3>
+            <div data-id="map-container" style="position: relative; width: 800px; height: 400px;">
+                <div style="width: 100%; height: 100%; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22><defs><pattern id=%22p%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22><circle cx=%222.5%22 cy=%222.5%22 r=%221%22 fill=%22%23222%22/></pattern></defs><rect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23p)%22/></svg>');">
+                </div>
+                <div data-id="tokyo-region" style="position: absolute; top: 35%; left: 80%; width: 20px; height: 20px; background: #3498db; border-radius: 50%; box-shadow: 0 0 15px #3498db;"></div>
+                <div data-id="london-region" style="position: absolute; top: 30%; left: 48%; width: 20px; height: 20px; background: #3498db; border-radius: 50%; box-shadow: 0 0 15px #3498db;"></div>
+                
+                <p style="position: absolute; top: 25%; left: 83%; color: #fff;">Tokio</p>
+                <p style="position: absolute; top: 20%; left: 45%; color: #fff;">Londres</p>
+            </div>
+            <h3 class="fragment" style="color: #eee;">...sin importar dónde estés.</h3>
+        </section>
+        
+        <section data-transition="zoom" data-background-color="#000000">
+          <h1 class="r-fit-text" style="font-weight: bold; color: #fff;">Es la Localización Estratégica.</h1>
+        </section>
+
+      </section>
+
+
+
+      <section data-transition="zoom" data-background-image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto-format=fit=crop" data-background-opacity="0.4" data-background-color="#172a3a">
+        <h1 class="r-fit-text" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 8px #000;">Métodos de Localización de Proyectos</h1>
+        <hr>
+        <p style="color: #eee;">
+          <small>Candelaria Cecilia Causado Buelvas & Daniel Alejandro Sánchez Villota</small><br>
+          <small><i>Universidad Nacional de Colombia, Sede Medellín</i></small>
+        </p>
+      </section>
+
+      <section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto-format=fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="box" style="background-color: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 15px;">
+            <h2 data-id="text" style="font-weight: bold; color: #fff;">Es una decisión con impacto a largo plazo.</h2>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto-format=fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="box" style="background-color: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 15px;">
+            <h2 data-id="text" style="font-weight: bold; color: #fff;">Requiere una alta inversión y es irreversible.</h2>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="box" style="background-color: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 15px;">
+            <h2 data-id="text" style="font-weight: bold; color: #fff;">Define la estructura de costos y la competitividad futura.</h2>
+          </div>
+        </section>
+      </section>
+
+      
+      <section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto-format&fit=crop" data-background-opacity="0.4" data-background-color="#000">
+          <h2 class="r-fit-text" style="font-weight: bold; color: #fff;">Factores Clave</h2>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1587135304383-a026e3a033e8?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">1. El Mercado</h1>
+            <h3 data-id="subtitle" style="color: #eee;">¿Dónde están los clientes?</h3>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1587135304383-a026e3a033e8?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">1. El Mercado</h1>
+            <ul style="color: #eee; text-align: left; margin-top: 20px; list-style: square;">
+              <li class="fragment">La demanda y sus áreas de influencia.</li>
+              <li class="fragment">La cercanía del mercado para reducir costos de distribución.</li>
+            </ul>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1586933824188-31221c4692a8?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container2" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title2" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">2. Insumos y Recursos</h1>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1586933824188-31221c4692a8?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container2" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title2" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">2. Insumos y Recursos</h1>
+            <ul style="color: #eee; text-align: left; margin-top: 20px; list-style: square;">
+              <li class="fragment">Cercanía de las fuentes de abastecimiento (materias primas).</li>
+              <li class="fragment">Disponibilidad y costo de mano de obra.</li>
+              <li class="fragment">Costo y disponibilidad de terrenos.</li>
+              <li class="fragment">Disponibilidad de agua, energía y otros suministros.</li>
+            </ul>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1532289417975-d561a26883ba?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container3" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title3" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">3. Transporte y Logística</h1>
+            <h3 data-id="subtitle3" style="color: #eee;">¿Cómo conectamos todo?</h3>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1532289417975-d561a26883ba?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container3" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title3" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">3. Transporte y Logística</h1>
+            <ul style="color: #eee; text-align: left; margin-top: 20px; list-style: square;">
+              <li class="fragment">Medios y costos de transporte (terrestre, aéreo, marítimo).</li>
+              <li class="fragment">Calidad de las comunicaciones (internet, telefonía).</li>
+            </ul>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1611095965933-21c6a6f17c6b?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container4" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title4" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">4. Factores del Entorno</h1>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-image="https://images.unsplash.com/photo-1611095965933-21c6a6f17c6b?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div data-id="container4" style="background-color: rgba(0,0,0,0.6); padding: 20px; border-radius: 15px;">
+            <h1 data-id="title4" style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">4. Factores del Entorno</h1>
+            <ul style="color: #eee; text-align: left; margin-top: 20px; list-style: square;">
+              <li class="fragment">Factores ambientales y normativas.</li>
+              <li class="fragment">Estructura impositiva y legal (impuestos, incentivos).</li>
+              <li class="fragment">Topografía de suelos y condiciones del sitio.</li>
+              <li class="fragment">Facilidades para la eliminación de desechos.</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+<section>
+
+        <section data-transition="zoom" data-background-color="#0a0f1a" data-background-image="https://images.unsplash.com/photo-1554435493-93422e822058?q=80&w=2070&auto-format=fit-crop" data-background-opacity="0.15">
+          <h1 class="r-fit-text" style="font-weight: bold; color: #fff;">La Estrategia de la Capacidad</h1>
+          <h3 style="color: #ccc; font-weight: 300;">Tres decisiones que definen el futuro de una operación.</h3>
+        </section>
+
+        <section data-auto-animate data-background-color="#0a0f1a" data-background-image="https://images.unsplash.com/photo-1554435493-93422e822058?q=80&w=2070&auto-format=fit-crop" data-background-opacity="0.15">
+          <div data-id="card-container" style="background-color: rgba(15, 20, 35, 0.9); border-radius: 20px; padding: 40px; width: 65%; margin: auto; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border-top: 6px solid #00aaff;">
+            <img data-id="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGFhZmYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxsaW5lIHgxPSIxMiIgeTE9IjUiIHgyPSIxMiIgeTI9IjE5Ij48L2xpbmU+PGxpbmUgeDE9IjUiIHkxPSIxMiIgeDI9IjE5IiB5Mj0iMTIiPjwvbGluZT48bGluZSB4MT0iOCIgeTE9IjQiIHgyPSI0IiB5Mj0iOCI+PC9saW5lPjxsaW5lIHgxPSIyMCIgeTE9IjgiIHgyPSIxNiIgeTI9IjQiPjwvbGluZT48bGluZSB4MT0iMjAiIHkxPSIxNiIgeDI9IjE2IiB5Mj0iMjAiPjwvbGluZT48bGluZSB4MT0iOCIgeTE9IjIwIiB4Mj0iNCIgeTI9IjE2Ij48L2xpbmU+PC9zdmc+" style="height: 70px; border: none; background: none; box-shadow: none; margin-bottom: 20px;">
+            <h2 data-id="title" style="color: #00aaff; margin: 0; font-size: 2em;">EXPANDIR</h2>
+            <p data-id="text" style="color: #eee; font-size: 1.2em; font-weight: 300;">Capitalizar la infraestructura existente.</p>
+          </div>
+        </section>
+
+        <section data-auto-animate data-background-color="#0a0f1a" data-background-image="https://images.unsplash.com/photo-1554435493-93422e822058?q=80&w=2070&auto-format=fit-crop" data-background-opacity="0.15">
+          <div data-id="card-container" style="background-color: rgba(15, 20, 35, 0.9); border-radius: 20px; padding: 40px; width: 65%; margin: auto; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border-top: 6px solid #ffb700;">
+            <img data-id="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmI3MDAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMyAySDZhMiAyIDAgMCAwLTIgMnYxNmEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWOXoiPjwvcGF0aD48cG9saWxpbmUgcG9pbnRzPSIxMyAyIDEzIDkgMjA5Ij48L3BvbGlsaW5lPjxtb3ZlVG8geD0iMTYiIHk9IjIiLz48bGluZSB4MT0iMTYiIHkxPSI4IiB4Mj0iMTYiIHkyPSIxNCI+PC9saW5lPjxsaW5lIHgxPSIxMyIgeTE9IjExIiB4Mj0iMTkiIHkyPSIxMSI+PC9saW5lPjwvc3ZnPg==" style="height: 70px; border: none; background: none; box-shadow: none; margin-bottom: 20px;">
+            <h2 data-id="title" style="color: #ffb700; margin: 0; font-size: 2em;">AÑADIR</h2>
+            <p data-id="text" style="color: #eee; font-size: 1.2em; font-weight: 300;">Diversificar el alcance geográfico.</p>
+          </div>
+        </section>
+
+        <section data-auto-animate data-background-color="#0a0f1a" data-background-image="https://images.unsplash.com/photo-1554435493-93422e822058?q=80&w=2070&auto-format=fit-crop" data-background-opacity="0.15">
+          <div data-id="card-container" style="background-color: rgba(15, 20, 35, 0.9); border-radius: 20px; padding: 40px; width: 65%; margin: auto; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border-top: 6px solid #e84118;">
+            <img data-id="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlODQxMTgiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0yMSAxMGMyLTQuNzctNC4yMy04LTktOHMtOSAzLjIzLTkgOHAzLjU4IDcuMjcgOC40MyA5LjU4Yy4yOS4xMy42NS4xMy45NCAwQzE3LjQyIDE3LjI3IDIxIDE0Ljc3IDIxIDEwWiI+PC9wYXRoPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTAiIHI9IjMiPjwvY2lyY2xlPjwvc3ZnPg==" style="height: 70px; border: none; background: none; box-shadow: none; margin-bottom: 20px;">
+            <h2 data-id="title" style="color: #e84118; margin: 0; font-size: 2em;">RELOCALIZAR</h2>
+            <p data-id="text" style="color: #eee; font-size: 1.2em; font-weight: 300;">Transformar el modelo operativo.</p>
+          </div>
+        </section>
+
+        <section data-background-color="#0a0f1a" data-background-image="https://images.unsplash.com/photo-1554435493-93422e822058?q=80&w=2070&auto-format=fit=crop" data-background-opacity="0.15">
+
+        <style>
+            .card-title {
+            color: white;
+            font-size: 1.4em; /* Tamaño ajustado para que quepan las palabras */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            }
+        </style>
+
+        <h2 style="color: #eee; font-weight: 300;">La relocalización nos lleva a definir el <strong style="color: #e84118;">dónde</strong>:</h2>
+        
+        <div style="display: flex; justify-content: center; align-items: stretch; margin-top: 40px; text-align: center; gap: 20px;">
+            
+            <div class="fragment" style="background-color: rgba(15, 20, 35, 0.9); flex: 1; padding: 25px; border-radius: 15px;">
+                <h3 class="card-title">Offshoring</h3>
+                <hr style="width: 70%; border-color: rgba(255,255,255,0.2);">
+                <p style="font-size: 1.2em; font-weight: bold; color: #aaa;">Costo</p>
+            </div>
+
+            <div class="fragment" style="background-color: rgba(15, 20, 35, 0.9); flex: 1; padding: 25px; border-radius: 15px;">
+                <h3 class="card-title">Nearshoring</h3>
+                <hr style="width: 70%; border-color: rgba(255,255,255,0.2);">
+                <p style="font-size: 1.2em; font-weight: bold; color: #aaa;">Equilibrio</p>
+            </div>
+            
+            <div class="fragment" style="background-color: rgba(15, 20, 35, 0.9); flex: 1; padding: 25px; border-radius: 15px;">
+                <h3 class="card-title">Reshoring</h3>
+                <hr style="width: 70%; border-color: rgba(255,255,255,0.2);">
+                <p style="font-size: 1.2em; font-weight: bold; color: #aaa;">Control</p>
+            </div>
+        </div>
+        </section>
+
+      </section>
+
+      </section>
+      
+      <section>
+
+        <section data-transition="fade-in" data-background-color="#000000">
+          <h1 class="r-fit-text" style="font-weight: 300; color: #ffffff;">El Proceso de Decisión</h1>
+          <h3 style="color: #888;">El camino hacia la localización óptima.</h3>
+        </section>
+
+        <section data-auto-animate data-background-color="#000000">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div data-id="step-number" style="font-size: 15em; font-weight: bold; color: #222; margin-right: 80px;">01</div>
+            <div data-id="step-content" style="text-align: left;">
+              <h2 data-id="title" style="font-size: 3em; font-weight: bold; color: #ffffff; margin: 0;">FACTORES</h2>
+              <p data-id="subtitle" style="font-size: 1.5em; font-weight: 300; color: #00aaff;">Definir lo crítico y lo secundario.</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-background-color="#000000">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div data-id="step-number" style="font-size: 15em; font-weight: bold; color: #222; margin-right: 80px;">02</div>
+            <div data-id="step-content" style="text-align: left;">
+              <h2 data-id="title" style="font-size: 3em; font-weight: bold; color: #ffffff; margin: 0;">FILTRO</h2>
+              <p data-id="subtitle" style="font-size: 1.5em; font-weight: 300; color: #00aaff;">De la región al sitio exacto.</p>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate data-background-color="#000000">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div data-id="step-number" style="font-size: 15em; font-weight: bold; color: #222; margin-right: 80px;">03</div>
+            <div data-id="step-content" style="text-align: left;">
+              <h2 data-id="title" style="font-size: 3em; font-weight: bold; color: #ffffff; margin: 0;">DATOS</h2>
+              <p data-id="subtitle" style="font-size: 1.2em; font-weight: 300; color: #00aaff;">Recopilar la inteligencia de campo.</p>
+            </div>
+          </div>
+        </section>
+        
+        <section data-auto-animate data-background-color="#000000">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div data-id="step-number" style="font-size: 15em; font-weight: bold; color: #222; margin-right: 80px;">04</div>
+            <div data-id="step-content" style="text-align: left;">
+              <h3 data-id="title" style="font-size: 2em; font-weight: bold; color: #ffffff; margin: 0;">LO CUANTITATIVO</h3>
+              <p data-id="subtitle" style="font-size: 1.5em; font-weight: 300; color: #00aaff;">Analizar los costos medibles.</p>
+            </div>
+          </div>
+        </section>
+        
+        <section data-auto-animate data-background-color="#000000">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div data-id="step-number" style="font-size: 15em; font-weight: bold; color: #222; margin-right: 80px;">05</div>
+            <div data-id="step-content" style="text-align: left;">
+              <h3 data-id="title" style="font-size: 2em; font-weight: bold; color: #ffffff; margin: 0;">LO CUALITATIVO</h3>
+              <p data-id="subtitle" style="font-size: 1.5em; font-weight: 300; color: #00aaff;">Ponderar el valor intangible.</p>
+            </div>
+          </div>
+        </section>
+        
+        <section data-auto-animate data-background-color="#000000">
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div data-id="step-number" style="font-size: 15em; font-weight: bold; color: #222; margin-right: 80px;">06</div>
+            <div data-id="step-content" style="text-align: left;">
+              <h2 data-id="title" style="font-size: 3em; font-weight: bold; color: #ffffff; margin: 0;">LA DECISIÓN</h2>
+              <p data-id="subtitle" style="font-size: 1.2em; font-weight: 300; color: #00aaff;">Presentar la recomendación final.</p>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+
+      <section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto-format&fit=crop" data-background-opacity="0.4" data-background-color="#000">
+          <h2 class="r-fit-text" style="font-weight: bold; color: #fff;">No todos los proyectos buscan lo mismo...</h2>
+        </section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1586528116311-0692421b3a39?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div style="background-color: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 15px;">
+            <h2 style="font-weight: bold; color: #fff;">Un <strong>proyecto industrial</strong> busca minimizar <strong>costos</strong>.</h2>
+          </div>
+        </section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div style="background-color: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 15px;">
+            <h2 style="font-weight: bold; color: #fff;">Un <strong>proyecto comercial</strong> busca maximizar <strong>ingresos</strong>.</h2>
+          </div>
+        </section>
+      </section>
+
+
+      <section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1586528116311-0692421b3a39?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.4" data-background-color="#000">
+          <h4 class="r-fit-text" style="font-weight: bold; color: #fff;">Métodos</h4>
+        </section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div style="background-color: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 15px; display: inline-block;">
+            <h1 style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">Factores Ponderados</h1>
+            <h3 style="color: #eee;">El objetivo: convertir lo subjetivo en un puntaje objetivo.</h3>
+          </div>
+        </section>
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto-format&fit=crop" data-background-opacity="0.6" data-background-color="#000">
+          <h2 style="color: #fff;">Los Pasos del Método</h2>
+          <ol style="background-color: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 15px; display: inline-block; text-align: left;">
+            <li class="fragment" style="color: #eee;"><strong>Identificar</strong> los factores relevantes.</li>
+            <li class="fragment" style="color: #eee;"><strong>Asignar</strong> un peso a cada factor.</li>
+            <li class="fragment" style="color: #eee;"><strong>Calificar</strong> cada alternativa (ej: 1 a 100).</li>
+            <li class="fragment" style="color: #eee;"><strong>Calcular</strong> el puntaje total y decidir.</li>
+          </ol>
+        </section>
+        <section data-transition="fade" data-background-color="#f0f2f5">
+          <h3 style="color: #333;">Ejemplo: Tabla de Factores Ponderados</h3>
+          <table style="width: 90%; margin: auto; font-size: 0.8em; border-collapse: collapse;">
+            <thead style="background-color: #34495e; color: white;">
+              <tr>
+                <th style="padding: 10px;">Factor Relevante</th>
+                <th style="padding: 10px;">Peso (%)</th>
+                <th style="padding: 10px;">Calificación A</th>
+                <th style="padding: 10px;">Puntaje A</th>
+                <th style="padding: 10px;">Calificación B</th>
+                <th style="padding: 10px;">Puntaje B</th>
+              </tr>
+            </thead>
+            <tbody style="background-color: #fff; color: #333;">
+              <tr class="fragment">
+                <td>Proximidad a Proveedores</td>
+                <td>30%</td>
+                <td>80</td>
+                <td>24.0</td>
+                <td>60</td>
+                <td>18.0</td>
+              </tr>
+              <tr class="fragment">
+                <td>Costos Laborales</td>
+                <td>50%</td>
+                <td>70</td>
+                <td>35.0</td>
+                <td>90</td>
+                <td>45.0</td>
+              </tr>
+              <tr class="fragment">
+                <td>Infraestructura</td>
+                <td>20%</td>
+                <td>90</td>
+                <td>18.0</td>
+                <td>75</td>
+                <td>15.0</td>
+              </tr>
+            </tbody>
+            <tfoot class="fragment" style="background-color: #34495e; color: white; font-weight: bold;">
+              <tr>
+                <td>TOTAL</td>
+                <td>100%</td>
+                <td></td>
+                <td>77.0</td>
+                <td></td>
+                <td>78.0 *</td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+
+        <section data-transition="zoom-in fade-out" data-background-color="#FDFEFE">
+    <h2 style="font-size: 2.5em; font-weight: 800; color: #1C2B3A;">Método Brown y Gibson</h2>
+    <p class="fragment" style="font-size: 1.5em; margin-top: 50px;">Una guía para la localización estratégica.</p>
+    <p class="fragment" style="font-size: 1.5em; font-weight: bold; color: #007BFF;">Combinando Datos y Criterio.</p>
+</section>
+
+<section data-auto-animate data-background-color="#FDFEFE">
+    <h3 data-id="title-pilares" style="position: absolute; top: 5%; left: 5%; font-size: 1.5em; color: #1C2B3A;">Los Pilares del Método</h3>
+    <div class="r-stretch" style="display: flex; justify-content: space-around; align-items: center; gap: 2em; text-align: center;">
+        
+        <div data-id="objective-box" style="width: 40%;">
+            <h4 style="font-size: 1.3em; color: #007BFF;">Factores Objetivos</h4>
+            <p style="font-size: 0.8em;">Todo lo medible: Costos de terreno, Construcción, Mano de obra, Logística. Es el análisis cuantitativo.</p>
+        </div>
+
+        <div data-id="subjective-box" style="width: 40%;">
+            <h4 style="font-size: 1.3em; color: #E74C3C;">Factores Subjetivos</h4>
+            <p style="font-size: 0.8em;">Lo cualitativo y estratégico: Calidad de vida, Ecosistema de innovación, Marco legal, Percepción del mercado.</p>
+        </div>
+    </div>
+</section>
+
+<section data-transition="slide-in" data-background-color="#ffffff">
+    <h2 style="color: #020202;">El Proceso en 3 Pasos</h2>
+    <ol style="color: #020202; font-size: 0.6em; max-width: 80%; margin: 40px auto; text-align: left;">
+        <li class="fragment fade-up"><strong>Evaluar lo Objetivo:</strong> Se calculan los costos totales para cada ubicación y se normalizan para obtener una Medida Objetiva (MO<sub>i</sub>).</li>
+        <li class="fragment fade-up"><strong>Ponderar lo Subjetivo:</strong> Se asignan pesos a los factores cualitativos y se califica cada ubicación para obtener una Medida Subjetiva (MS<sub>i</sub>).</li>
+        <li class="fragment fade-up"><strong>Sintetizar y Decidir:</strong> Se combinan ambas medidas con un factor de ponderación (K) para obtener el Índice de Preferencia (MP<sub>i</sub>) final.</li>
+    </ol>
+</section>
+
+<section data-auto-animate data-background-color="#fff">
+    <h2 style="color: #131111; font-size: 1.6em;">Análisis De Las Fórmulas</h2>
+    <p style="color: #221c1c; margin-top: -10px; opacity: 0.9; font-size: 0.9em;">Los dos pilares de decisión.</p>
+    
+    <div class="r-stretch" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+        
+        <div class="fragment fade-right" style="color: #233547; background: #ffffff; padding: 25px; border-radius: 15px; flex: 1 1 400px; max-width: 420px; display: flex; flex-direction: column; text-align: center; border-top: 4px solid #3498DB; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+
+            <h4 style="color: #0a0d0f; font-size: 0.7em; margin-top: 0; margin-bottom: 15px;">Análisis Objetivo (MO<sub>i</sub>)</h4>
+            <p style="font-size: 0.6em; opacity: 0.8; line-height: 1.4;">Mide lo tangible: los costos. Un menor costo resulta en una puntuación mayor.</p>
+            
+            <div style="font-size: 0.6em; margin-top: auto; font-family: 'Courier New', monospace; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border-left: 4px solid #3498DB; width: 100%;">
+                MO<sub>i</sub> = (1/C<sub>i</sub>) / Σ(1/C<sub>j</sub>)
+            </div>
+
+            <p style="font-size: 0.6em; margin-top: 15px; opacity: 0.7;">Donde C<sub>i</sub> es el costo total.</p>
+        </div>
+
+        <div class="fragment fade-left" style="color: #233547; background: #ffffff; padding: 25px; border-radius: 15px; flex: 1 1 400px; max-width: 420px; display: flex; flex-direction: column; text-align: center; border-top: 4px solid #E67E22; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+
+            <h4 style="color: #000; font-size: 0.9em; margin-top: 0; margin-bottom: 15px;">Análisis Subjetivo (MS<sub>i</sub>)</h4>
+            <p style="font-size: 0.6em; opacity: 0.8; line-height: 1.4;">Mide lo estratégico: los intangibles. Pondera factores clave como talento y calidad.</p>
+
+            <div style="font-size: 0.6em; margin-top: auto; font-family: 'Courier New', monospace; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border-left: 4px solid #E67E22; width: 100%;">
+                MS<sub>i</sub> = Σ(W<sub>j</sub> * R<sub>ij</sub>)
+            </div>
+
+            <p style="font-size: 0.6em; margin-top: 15px; opacity: 0.7;">Donde W<sub>j</sub> es el peso y R<sub>ij</sub> la calificación.</p>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate data-background-color="#fff">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+        
+        <div style="margin-bottom: 20px;">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#66bb6a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="5" r="3"></circle>
+                <path d="M12 22V8"></path>
+                <path d="M5 12H2v6h3a3 3 0 0 0 0 6"></path>
+                <path d="M19 12h3v6h-3a3 3 0 0 0 0 6"></path>
+            </svg>
+        </div>
+
+        <h3 style="color: #111010; font-size: 1.8em; margin-bottom: 10px;">Fórmula Final de Preferencia (MP<sub>i</sub>)</h3>
+        <p style="color: #000000; font-size: 1em; margin-top: 0; opacity: 0.9;">Aquí se fusionan los datos y el criterio estratégico.</p>
+        
+        <div style="font-size: clamp(0.8em, 2vw, 1em); color: #000000; background: linear-gradient(45deg, rgba(52,152,219,0.2) 0%, rgba(230,126,34,0.2) 100%); padding: 35px 50px; border-radius: 15px; margin-top: 30px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: 'Courier New', monospace;">
+            MP<sub>i</sub> = K * (MO<sub>i</sub>) + (1-K) * (MS<sub>i</sub>)
+        </div>
+        <p class="fragment fade-up" style="color: #000000; margin-top: 40px; max-width: 65%; text-align: center; font-size: 0.6em; line-height: 1.5; background: rgba(0,0,0,0.2); padding: 15px 25px; border-radius: 10px; border-left: 3px solid #66bb6a;">
+            El factor K (de 0 a 1) es la decisión estratégica clave: ¿Qué tiene más peso, el costo o los factores cualitativos?
+        </p>
+    </div>
+</section>
+
+<section data-transition="zoom-out" data-background-image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" data-background-opacity="0.2">
+    <h2>Ejemplo</h2>
+    <p style="font-size: 0.8em;"><strong>El Escenario:</strong> La empresa "TechSolutions Inc." necesita abrir una nueva sede de desarrollo.</p>
+    <p style="font-size: 1.2em;"><strong>Las Alternativas:</strong></p>
+    <div style="display: flex; justify-content: space-around; font-size: 1.3em; margin-top: 40px;">
+        <span class="fragment">- Sabaneta</span>
+        <span class="fragment">- Itagüí</span>
+        <span class="fragment">- Envigado</span>
+    </div>
+</section>
+
+<section data-auto-animate data-background-color="#F4F6F7">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+
+        <h3 data-id="example-title" style="color: #2C3E50;">Ejemplo: Paso 1 - Análisis Objetivo</h3>
+        <p data-id="example-subtitle" style="color: #5D6D7E; margin-top: -15px;">Calculando la Medida Objetiva (MO<sub>i</sub>)</p>
+        
+        <style>
+            .responsive-table {
+                width: 95%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                font-size: clamp(0.65em, 1.5vw, 0.85em); /* Controla el tamaño del texto */
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            .responsive-table th, .responsive-table td {
+                padding: 12px 15px;
+                text-align: center;
+            }
+            .responsive-table thead tr {
+                background-color: #34495E;
+                color: #ffffff;
+            }
+            .responsive-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+            .responsive-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+            .responsive-table tbody tr:last-of-type {
+                border-bottom: 2px solid #34495E;
+            }
+            .responsive-table td:nth-child(2), .responsive-table td:nth-child(3) {
+                 font-family: 'Courier New', monospace;
+                 text-align: right; /* Alinea números a la derecha */
+            }
+        </style>
+
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>Ubicación</th>
+                    <th>Costo Anual (USD)</th>
+                    <th class="fragment" data-fragment-index="1">Inverso (1/C<sub>i</sub>)</th>
+                    <th class="fragment" data-fragment-index="2">Medida Objetiva (MO<sub>i</sub>)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sabaneta</td>
+                    <td>2,000,000</td>
+                    <td class="fragment" data-fragment-index="1">0.00000050</td>
+                    <td class="fragment" data-fragment-index="2" style="font-weight: bold; color: #2980B9;">0.31</td>
+                </tr>
+                <tr>
+                    <td>Itagüí</td>
+                    <td>1,500,000</td>
+                    <td class="fragment" data-fragment-index="1">0.00000067</td>
+                    <td class="fragment" data-fragment-index="2" style="font-weight: bold; color: #27AE60;">0.41</td>
+                </tr>
+                <tr>
+                    <td>Envigado</td>
+                    <td>2,200,000</td>
+                    <td class="fragment" data-fragment-index="1">0.00000045</td>
+                    <td class="fragment" data-fragment-index="2" style="font-weight: bold; color: #C0392B;">0.28</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="fragment" data-fragment-index="1" style="background-color: #ECF0F1;">
+                    <td></td>
+                    <td style="text-align: right;"><strong>Total (Σ)</strong></td>
+                    <td style="font-weight: bold;">0.00000162</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <div class="fragment" data-fragment-index="3" style="margin-top: 25px; background-color: #E8F6F3; border-left: 5px solid #27AE60; padding: 15px 20px; width: 80%; border-radius: 5px;">
+            <p style="margin: 0; color: #145A32; font-size: 0.9em;"><strong>Conclusión Objetiva:</strong> Sabaneta tiene la mejor puntuación al ser la opción más económica.</p>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate data-background-color="#F4F6F7">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+
+        <h3 data-id="example-title" style="color: #2C3E50;">Ejemplo: Paso 2 - Análisis Subjetivo</h3>
+        <p data-id="example-subtitle" style="color: #5D6D7E; margin-top: -15px;">Calculando la Medida Subjetiva (MS<sub>i</sub>)</p>
+        <p style="font-size: 0.8em; color: #5D6D7E; max-width: 80%; text-align: center;">Se definen y ponderan factores clave, luego se califica cada ciudad (escala 1-10).</p>
+
+        <style>
+            .responsive-table {
+                width: 95%;
+                margin: 15px auto;
+                border-collapse: collapse;
+                font-size: clamp(0.65em, 1.5vw, 0.85em);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            .responsive-table th, .responsive-table td {
+                padding: 12px 15px;
+                text-align: center;
+            }
+            .responsive-table thead tr {
+                background-color: #34495E;
+                color: #ffffff;
+            }
+            .responsive-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+            .responsive-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+            .responsive-table tbody tr:last-of-type {
+                border-bottom: 2px solid #34495E;
+            }
+            .responsive-table .factor-col { text-align: left; }
+            .responsive-table .factor-col small { color: #5D6D7E; }
+        </style>
+
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>Factor (Peso)</th>
+                    <th>Itagüí</th>
+                    <th>Sabaneta</th>
+                    <th>Envigado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="factor-col">Acceso a Talento <small>(0.5)</small></td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td class="factor-col">Calidad de Vida <small>(0.3)</small></td>
+                    <td>7</td>
+                    <td>9</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td class="factor-col">Infraestructura <small>(0.2)</small></td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>9</td>
+                </tr>
+            </tbody>
+            <tfoot class="fragment" data-fragment-index="1" style="font-weight: bold; background-color: #ECF0F1;">
+                <tr>
+                    <td style="text-align: right; color: #2C3E50;">Puntaje Final (MS<sub>i</sub>):</td>
+                    <td style="color: #E67E22; font-size: 1.1em;">7.80</td>
+                    <td style="color: #27AE60; font-size: 1.1em;">8.10</td>
+                    <td style="color: #E67E22; font-size: 1.1em;">7.20</td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <div class="fragment" data-fragment-index="2" style="margin-top: 20px; background-color: #E8F6F3; border-left: 5px solid #27AE60; padding: 15px 20px; width: 80%; border-radius: 5px;">
+            <p style="margin: 0; color: #145A32; font-size: 0.6em;"><strong>Conclusión Subjetiva:</strong> De nuevo, Sabaneta es la opción más atractiva según los factores cualitativos.</p>
+        </div>
+    </div>
+</section>
+
+<section data-auto-animate data-background-color="#F4F6F7">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+
+        <h3 data-id="example-title" style="color: #2C3E50;">Ejemplo: Paso 3 - Síntesis y Decisión</h3>
+        <p data-id="example-subtitle" style="color: #5D6D7E; margin-top: -15px;">Aplicando el factor estratégico K</p>
+        
+        <div style="text-align: center; margin: 15px 0; padding: 20px; background: #EAF2F8; border-radius: 10px; width: 85%;">
+            <p style="margin: 0 0 10px 0; color: #34495E;">La empresa decide que los factores subjetivos (talento, calidad de vida) son más importantes que el costo.</p>
+            <div style="font-size: 1em; font-weight: bold; color: #2C3E50; background: #fff; padding: 10px 20px; border-radius: 8px; display: inline-block; border: 2px solid #3498DB;">
+                Se define K = 0.4
+            </div>
+            <p class="fragment" style="margin: 10px 0 0 0; color: #5D6D7E; font-size: 0.8em;">(Esto da 40% de peso al costo y 60% a los factores subjetivos)</p>
+        </div>
+
+    </div>
+</section>
+<section data-background-color="#F4F6F7">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+
+        <h3 style="color: #2C3E50;">Resultados: La Decisión Final</h3>
+        <p style="color: #5D6D7E; margin-top: -15px;">Aplicando la fórmula: <strong>0.4(MO<sub>i</sub>) + 0.6(MS<sub>i</sub>)</strong></p>
+
+        <style>
+            .responsive-table { width: 90%; margin: 15px auto; border-collapse: collapse; font-size: clamp(0.7em, 1.6vw, 0.9em); box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+            .responsive-table th, .responsive-table td { padding: 12px 15px; text-align: center; }
+            .responsive-table thead tr { background-color: #34495E; color: #ffffff; }
+            .responsive-table tbody tr { border-bottom: 1px solid #dddddd; }
+            .responsive-table .winner-row { background-color: #D4EFDF; font-size: 1.1em; font-weight: bold; }
+            .responsive-table .winner-row td:last-child { color: #1E8449; }
+        </style>
+
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>Ubicación</th>
+                    <th>Cálculo Detallado</th>
+                    <th>Índice Final (MP<sub>i</sub>)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Itagüí</td>
+                    <td>0.4(0.31) + 0.6(7.80)</td>
+                    <td style="font-weight:bold;">4.80</td>
+                </tr>
+                <tr class="winner-row">
+                    <td>Sabaneta</td>
+                    <td>0.4(0.41) + 0.6(8.10)</td>
+                    <td>5.02</td>
+                </tr>
+                <tr>
+                    <td>Envigado</td>
+                    <td>0.4(0.28) + 0.6(7.20)</td>
+                    <td style="font-weight:bold;">4.43</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="fragment" style="margin-top: 25px; background-color: #E8F6F3; border-left: 5px solid #1E8449; padding: 15px 20px; width: 80%; border-radius: 5px;">
+             <p style="margin: 0; color: #145A32; font-size: 0.6em;"><strong>Decisión Final:</strong> Ponderando costos y factores estratégicos, <strong>Sabaneta</strong> es la ubicación óptima con el mayor puntaje.</p>
+        </div>
+    </div>
+</section>
+
+<section data-transition="zoom-in" data-background-color="#fff  ">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; color: rgb(0, 0, 0); text-align: center;">
+
+        <div class="fragment fade-down" style="margin-bottom: 15px;">
+            <svg width="90" height="90" viewBox="0 0 24 24" fill="#27AE60">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-3-3 1.41-1.41L11 14.17l5.59-5.59L18 10l-7 7z"></path>
+            </svg>
+        </div>
+
+        <p style="font-size: 1.2em; opacity: 0.9; margin-top: -10px;">La ubicación estratégica con el mayor potencial es:</p>
+        
+        <div class="fragment zoom-in" style="background: rgba(0,0,0,0.25); border-top: 4px solid #27AE60; border-radius: 20px; padding: 25px 50px; margin-top: 25px; box-shadow: 0 10px 35px rgba(0,0,0,0.5);">
+            
+            <h1 style="font-size: clamp(1em, 3vw, 4em); font-weight: 500; margin: 0; color: #000000; text-shadow: 0 0 15px rgba(39, 174, 96, 0.7);">
+                Sabaneta
+            </h1>
+            
+            <div class="fragment fade-up" style="margin-top: 15px; font-size: 1em; background: #27AE60; color: #131010; padding: 10px 25px; border-radius: 50px; display: inline-block; font-weight: bold;">
+                Puntaje Final: 5.02
+            </div>
+        </div>
+    </div>
+</section>  
+
+      </section>
+
+      
+      
+
+      <section>
+
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1637401224238-592a4f4d222b?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div style="background-color: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 15px; display: inline-block;">
+            <h1 style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">Punto de Equilibrio</h1>
+            <h3 style="color: #eee;">Encontrando la opción más económica según el volumen.</h3>
+          </div>
+        </section>
+        <section data-auto-animate data-transition="fade" data-background-color="#f0f2f5">
+          <h4 style="color: #333;">Ejemplo: Punto de Equilibrio</h4>
+          <div style="display: flex; justify-content: space-around; align-items: center; width: 100%;">
+            <div data-id="data" style="flex: 1.2; font-size: 0.7em; color: #333; text-align: left;">
+              <p>¿A qué volumen de producción la Ubicación B se vuelve más barata?</p>
+              <table style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Ubicación</th>
+                    <th>Costo Fijo</th>
+                    <th>Costo Variable</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>A (Medellín)</strong></td>
+                    <td>$30M</td>
+                    <td>$7,500/u</td>
+                  </tr>
+                  <tr>
+                    <td><strong>B (Bogotá)</strong></td>
+                    <td>$110M</td>
+                    <td>$2,500/u</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="fragment"style="font-size: 0.9em;"><strong>Cálculo:</strong> <code>5000V = 80M ➞ <strong>V = 16,000 u.</strong></code></p>
+            </div>
+            <div data-id="graph" style="flex: 1; height: 350px; position: relative; margin-left: 20px; border-left: 3px solid #555; border-bottom: 3px solid #555;">
+              <div class="fragment" data-fragment-index="1" style="position: absolute; bottom: 10%; left: 0; width: 100%; height: 40%; background: linear-gradient(to top right, rgba(52, 152, 219, 0.7), transparent);"><span style="color:#2980b9; position: absolute; right: 5px; top: 5px; font-size: 0.7em;">Costo Total A</span></div>
+              <div class="fragment" data-fragment-index="2" style="position: absolute; bottom: 30%; left: 0; width: 100%; height: 25%; background: linear-gradient(to top right, rgba(231, 76, 60, 0.7), transparent 60%);"><span style="color:#c0392b; position: absolute; right: 5px; bottom: 5px; font-size: 0.7em;">Costo Total B</span></div>
+              <div class="fragment" data-fragment-index="3" style="position: absolute; bottom: 35%; left: 55%; width: 10px; height: 10px; background: black; border-radius: 50%;"></div>
+              <div class="fragment" data-fragment-index="3" style="position: absolute; bottom: 37%; left: 15%; font-size: 0.6em; color: black;">Punto de Equilibrio<br>(16,000 u.)</div>
+            </div>
+          </div>
+        </section>
+<section data-transition="fade" data-background-image="" data-background-opacity="0.4" data-background-color="#000">
+        <div style="background-color: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 15px; display: inline-block;">
+          <h1 style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">Carga-Distancia</h2>
+          <h3 style="color: #eee;">Minimiza el "esfuerzo" total del transporte (Carga x Distancia)</h4>
+        </div>
+      </section>
+
+       <section data-transition="fade-in-then-out" data-background-color="#ffffff">
+
+                <style>
+
+                  .route-line {
+
+                    stroke-dasharray: 1000;
+
+                    stroke-dashoffset: 1000;
+
+                    animation: draw-line 1s ease-out forwards;
+
+                  }
+
+                  @keyframes draw-line {
+
+                    to {
+
+                      stroke-dashoffset: 0;
+
+                    }
+
+                  }
+
+                </style>
+
+               
+
+                <h4 style="color: #333;">Ejemplo: Carga-Distancia</h4>
+
+                <p style="color: #555; font-size: 0.8em;">Se busca la ubicación con el menor puntaje `Σ(Carga × Distancia)`</p>
+
+               
+
+                <div style="position: relative; width: 900px; height: 450px; margin: 10px auto; background-image: linear-gradient(#e0e0e0 1px, transparent 1px), linear-gradient(90deg, #e0e0e0 1px, transparent 1px); background-size: 50px 50px; background-color: #f9f9f9; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+
+                 
+
+                  <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+
+                    <g class="fragment fade-out" data-fragment-index="1">
+
+                      <line class="route-line" x1="32%" y1="55%" x2="50%" y2="20%" stroke="#3498db" stroke-width="3" />
+
+                      <line class="route-line" x1="32%" y1="55%" x2="25%" y2="80%" stroke="#3498db" stroke-width="3" />
+
+                      <line class="route-line" x1="32%" y1="55%" x2="75%" y2="80%" stroke="#3498db" stroke-width="3" />
+
+                    </g>
+
+                    <g class="fragment" data-fragment-index="2">
+
+                      <line class="route-line" x1="68%" y1="55%" x2="50%" y2="20%" stroke="#e67e22" stroke-width="3" />
+
+                      <line class="route-line" x1="68%" y1="55%" x2="25%" y2="80%" stroke="#e67e22" stroke-width="3" />
+
+                      <line class="route-line" x1="68%" y1="55%" x2="75%" y2="80%" stroke="#e67e22" stroke-width="3" />
+
+                    </g>
+
+                  </svg>
+
+
+                  <div style="position: absolute; top: 15%; left: 48%; text-align: center; font-size: 0.8em; z-index: 2;">
+
+                    <div style="background: #5d6d7e; color: white; padding: 5px 10px; border-radius: 20px;">Proveedor X <small>(C:10)</small></div>
+
+                  </div>
+
+                  <div style="position: absolute; top: 75%; left: 23%; text-align: center; font-size: 0.8em; z-index: 2;">
+
+                    <div style="background: #5d6d7e; color: white; padding: 5px 10px; border-radius: 20px;">Proveedor Y <small>(C:5)</small></div>
+
+                  </div>
+
+                  <div style="position: absolute; top: 75%; left: 73%; text-align: center; font-size: 0.8em; z-index: 2;">
+
+                    <div style="background: #5d6d7e; color: white; padding: 5px 10px; border-radius: 20px;">Cliente Z <small>(C:15)</small></div>
+
+                  </div>
+
+
+                  <div style="position: absolute; top: 50%; left: 30%; z-index: 2; text-align: center;">
+
+                    <div style="width: 20px; height: 20px; background: #3498db; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px #3498db;"></div>
+
+                    <strong style="color: #2c3e50;">Sitio A</strong>
+
+                  </div>
+
+                  <div style="position: absolute; top: 50%; left: 66%; z-index: 2; text-align: center;">
+
+                    <div style="width: 20px; height: 20px; background: #e67e22; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 10px #e67e22;"></div>
+
+                    <strong style="color: #2c3e50;">Sitio B</strong>
+
+                  </div>
+
+                 
+
+                  <div class="fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; top: 0%; left: 5%; background: white; color: #2c3e50; padding: 10px; border-radius: 8px; font-size: 0.9em; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-left: 5px solid #3498db;">
+
+                    <strong>Puntaje A:</strong> (10×20)+(5×30)+(15×40) = <strong>950</strong>
+
+                  </div>
+
+                  <div class="fragment" data-fragment-index="2" style="position: absolute; top: 0%; right: 5%; background: white; color: #2c3e50; padding: 10px; border-radius: 8px; font-size: 0.9em; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-left: 5px solid #e67e22;">
+
+                    <strong>Puntaje B:</strong> (10×35)+(5×20)+(15×20) = <strong>750</strong>
+
+                  </div>
+
+                </div>
+
+              </section> 
+        <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1594398933229-86040a42f3f7?q=80&w=1974&auto-format&fit=crop" data-background-opacity="0.5" data-background-color="#000">
+          <div style="background-color: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 15px; display: inline-block;">
+            <h1 style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">Centro de Gravedad</h1>
+            <h3 style="color: #eee;">Calculando las coordenadas geográficas del punto de partida ideal.</h3>
+          </div>
+        </section>
+
+      <section data-transition="fade" data-background-color="#ffffff">
+              <h4 style="color: #333;">Ejemplo: Centro de Gravedad</h4>
+              <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;">
+                <div style="flex: 1; text-align: left; color: #333; font-size: 0.8em;">
+                  <p style="font-weight: bold;">1. Destinos y Cargas (Wi):</p>
+                  <table style="width: 100%; font-size: 0.9em; border-collapse: collapse;">
+                    <thead style="background-color: #34495e; color: white;">
+                      <tr>
+                        <th style="padding: 5px;">Ciudad</th>
+                        <th style="padding: 5px;">Coordenadas</th>
+                        <th style="padding: 5px;"></th>
+                        <th style="padding: 5px;">Carga</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="background-color: #f2f2f2;">
+                        <td>Bogotá</td>
+                        <td>4.7110° N</td>
+                        <td>74.0721° W</td>
+                        <td>2000 u.</td>
+                      </tr>
+                      <tr>
+                        <td>Cali</td>
+                        <td>3.4515° N</td>
+                        <td>76.5320° W</td>
+                        <td>1500 u.</td>
+                      </tr>
+                      <tr style="background-color: #f2f2f2;">
+                        <td>Barranquilla</td>
+                        <td>10.9639° N</td>
+                        <td>74.7964° W</td>
+                        <td>2500 u.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="fragment" data-fragment-index="2" style="margin-top: 20px;">
+                    <p style="font-weight: bold;">2. Cálculos:</p>
+                    <p><strong>Cx = </strong> <small>((4.7110×2000)+(3.4515×1500)+(10.9639×2500)) / 6000 =</small> <strong>6.8</strong></p>
+                    <p><strong>Cy = </strong> <small>((74.0721×2000)+(76.5320×1500)+(74.7964×2500)) / 6000 =</small> <strong>50.0</strong></p>
+                  </div>
+                  <div class="fragment" data-fragment-index="3" style="margin-top: 20px; background: #34495e; color: white; padding: 10px; border-radius: 8px; text-align: center;">
+                    <p style="margin:0; font-weight: bold; font-size: 1.1em;">Ubicación Óptima ≈ (6.8° N, 50.0° W)</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section data-transition="fade" data-background-color="#ffffff">
+              <style>
+                .map-pin { position: absolute; width: 100px; text-align: center; }
+                .map-pin .pin-dot { width: 18px; height: 18px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.4); margin: auto; }
+                .map-pin .pin-label { font-size: 0.8em; font-weight: bold; color: #2c3e50; margin-top: 5px; }
+                .optimal-point { position: absolute; font-size: 2.5em; color: #e74c3c; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); animation: pulse 1.5s infinite; }
+                @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+              </style>
+              <h4 style="color: #333;">Ejemplo: Centro de Gravedad</h4>
+              <div style="position: relative; width: 900px; height: 500px; margin: 10px auto; border-radius: 10px; overflow: hidden; background-color: #eaf5fc; background-image: linear-gradient(#d6eaf8 1px, transparent 1px), linear-gradient(90deg, #d6eaf8 1px, transparent 1px); background-size: 50px 50px; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);">
+                <div style="position: absolute; top: 10px; right: 10px; font-size: 1.5em; color: #a5b8c8;">🧭</div>
+                <div class="map-pin" style="top: 65%; left: 40%; transform: translate(-50%, -50%);">
+                  <div class="pin-dot" style="background: #3498db;"></div>
+                  <div class="pin-label">Bogotá</div>
+                </div>
+                <div class="map-pin" style="top: 80%; left: 25%; transform: translate(-50%, -50%);">
+                  <div class="pin-dot" style="background: #3498db;"></div>
+                  <div class="pin-label">Cali</div>
+                </div>
+                <div class="map-pin" style="top: 20%; left: 60%; transform: translate(-50%, -50%);">
+                  <div class="pin-dot" style="background: #3498db;"></div>
+                  <div class="pin-label">Barranquilla</div>
+                </div>
+                <div class="fragment" data-fragment-index="1" style="position: absolute; top: 50%; left: 45%; transform: translate(-50%, -50%);">
+                  <div class="optimal-point">★</div>
+                  <div class="pin-label" style="color: #c0392b; margin-top: 25px;">Punto Óptimo</div>
+                </div>
+              </div>
+            </section>
+            
+            
+
+
+            <section data-transition="fade" data-background-image="" data-background-opacity="0.5" data-background-color="#000">
+              <div style="background-color: rgba(0,0,0,0.5); padding: 20px 40px; border-radius: 15px; display: inline-block;">
+                <h1 style="font-weight: bold; color: #fff; text-shadow: 2px 2px 5px #000;">Modelo de Transporte</h1>
+                <h3 style="color: #eee;">Optimizando la red de distribución completa.</h3>
+          </div>
+        </section>
+<section data-auto-animate data-transition="slide-in fade-out" data-background-color="#f4f4f4">
+    
+    <style>
+        .transport-title h4 { color: #333; }
+        .transport-title p { color: #555; font-size: 0.8em; }
+        .transport-table-container { margin-top: 40px; }
+        .transport-table { width: 80%; margin: auto; font-size: 0.8em; border-collapse: collapse; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .transport-table thead { background-color: #34495e; color: white; }
+        .transport-table th, .transport-table td { padding: 8px; }
+        .transport-table .header-supply { background-color: #2980b9; }
+        .transport-table tbody { background-color: #fff; color: #333; }
+        .transport-table .cell-source { background-color: #eaf5fc; }
+        .transport-table .cell-supply { background-color: #d6eaf8; }
+    </style>
+
+    <div data-id="title-container" class="transport-title" style="text-align: center;">
+        <h4>Ejemplo: Modelo de Transporte</h4>
+        <p><strong>Paso 1: El Problema.</strong> Se parte de una matriz con los costos de envío por unidad.</p>
+    </div>
+
+    <div data-id="content-container" class="transport-table-container">
+        <table class="transport-table">
+            <thead>
+                <tr>
+                    <th>Desde / Hacia</th>
+                    <th>Almacén 1 (D:800)</th>
+                    <th>Almacén 2 (D:900)</th>
+                    <th>Almacén 3 (D:800)</th>
+                    <th class="header-supply">Oferta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="cell-source">Planta A (O:1000)</th>
+                    <td>$10</td>
+                    <td>$12</td>
+                    <td>$15</td>
+                    <td class="cell-supply">1000</td>
+                </tr>
+                <tr>
+                    <th class="cell-source">Planta B (O:1500)</th>
+                    <td>$11</td>
+                    <td>$8</td>
+                    <td>$9</td>
+                    <td class="cell-supply">1500</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section data-auto-animate data-transition="fade-in slide-out" data-background-color="#f4f4f4">
+    
+    <style>
+        .solution-title h4 { color: #333; }
+        .solution-title p { color: #555; font-size: 0.8em; }
+        .faded-table-container { position: absolute; top: 120px; left: -80px; transform: scale(0.5); opacity: 0.5; }
+        .faded-table { width: 80%; margin: auto; font-size: 0.8em; border-collapse: collapse; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .faded-table thead { background-color: #34495e; color: white; }
+        .faded-table th, .faded-table td { padding: 8px; }
+        .faded-table .header-supply { background-color: #2980b9; }
+        .faded-table tbody { background-color: #fff; color: #333; }
+        .faded-table .cell-source { background-color: #eaf5fc; }
+        .faded-table .cell-supply { background-color: #d6eaf8; }
+
+        .diagram-container { position: relative; width: 90%; height: 450px; margin: auto; font-family: sans-serif; }
+        .diagram-svg { position:absolute; top:0; left:0; width:100%; height:100%; z-index: 0; }
+        .node-column { position: absolute; top: 10%; width: 30%; height: 80%; display: flex; flex-direction: column; z-index: 1; }
+        .source-column { left: 0; justify-content: space-around; }
+        .dest-column { right: 0; justify-content: space-between; }
+        .node { padding: 10px; border-radius: 8px; text-align: center; font-size: 0.7em; }
+        .source-node { background: #eaf5fc; border: 1px solid #3498db; }
+        .dest-node { background: #fdedec; border: 1px solid #e74c3c; }
+        .flow-label { position: absolute; background: white; padding: 2px 5px; border-radius: 5px; font-size: 0.7em; font-weight: bold; color: #166333; }
+    </style>
+
+  <div data-id="title-container" class="solution-title" style="text-align: center;">
+        <h4>Ejemplo: Modelo de Transporte</h4>
+        <p><strong>Paso 2: La Solución.</strong> El modelo calcula los flujos óptimos para minimizar el costo.</p>
+    </div>
+
+    <div data-id="content-container" class="faded-table-container">
+        <table class="faded-table">
+            <thead>
+                <tr>
+                    <th>Desde / Hacia</th>
+                    <th>Almacén 1</th>
+                    <th>Almacén 2</th>
+                    <th>Almacén 3</th>
+                    <th class="header-supply">Oferta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="cell-source">Planta A</th>
+                    <td>$10</td>
+                    <td>$12</td>
+                    <td>$15</td>
+                    <td class="cell-supply">1000</td>
+                </tr>
+                <tr>
+                    <th class="cell-source">Planta B</th>
+                    <td>$11</td>
+                    <td>$8</td>
+                    <td>$9</td>
+                    <td class="cell-supply">1500</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="diagram-container">
+        <svg class="diagram-svg">
+            <g class="fragment">
+                <line x1="30%" y1="25%" x2="70%" y2="50%" stroke="#27ae60" stroke-width="4.5" />
+                <line x1="30%" y1="25%" x2="70%" y2="50%" stroke="white" stroke-width="2" />
+                <line x1="30%" y1="75%" x2="70%" y2="16.5%" stroke="#27ae60" stroke-width="4.5" />
+                <line x1="30%" y1="75%" x2="70%" y2="16.5%" stroke="white" stroke-width="2" />
+                <line x1="30%" y1="75%" x2="70%" y2="83.5%" stroke="#27ae60" stroke-width="4.5" />
+                <line x1="30%" y1="75%" x2="70%" y2="83.5%" stroke="white" stroke-width="2" />
+            </g>
+        </svg>
+
+        <div class="node-column source-column">
+            <div class="node source-node"><strong>Planta A</strong><br>(1000 u.)</div>
+            <div class="node source-node"><strong>Planta B</strong><br>(1500 u.)</div>
+        </div>
+        
+        <div class="node-column dest-column">
+            <div class="node dest-node"><strong>Almacén 1</strong><br>(800 u.)</div>
+            <div class="node dest-node"><strong>Almacén 2</strong><br>(900 u.)</div>
+            <div class="node dest-node"><strong>Almacén 3</strong><br>(800 u.)</div>
+        </div>
+
+        <div class="fragment flow-label" style="top: 35%; left: 45%;">900 u.</div>
+        <div class="fragment flow-label" style="top: 44%; left: 45%;">800 u.</div>
+        <div class="fragment flow-label" style="top: 77%; left: 45%;">700 u.</div>
+    </div>
+</section>
+
+<section data-transition="zoom" data-background-image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto-format&fit=crop" data-background-opacity="0.4" data-background-color="#172a3a">
+    <h1 style="font-weight: bold; color: #fff; text-shadow: 2px 2px 8px #000; font-size: 2.2em; margin-bottom: 20px;">Conclusiones</h1>
+    <hr style="width: 50%; border-color: rgba(255,255,255,0.3); margin-bottom: 30px;">
+    
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <p class="fragment" style="color: #eee; background-color: rgba(0,0,0,0.6); padding: 12px 20px; border-radius: 8px; font-size: 0.6em; max-width: 85%; line-height: 1.4;">
+            No existe un único método "perfecto". La elección depende del <strong>objetivo del proyecto</strong> y la <strong>calidad de la información</strong> disponible.
+        </p>
+        <p class="fragment" style="color: #eee; background-color: rgba(0,0,0,0.6); padding: 12px 20px; border-radius: 8px; font-size: 0.6em; max-width: 85%; line-height: 1.4;">
+            La mejor decisión surge de <strong>combinar</strong> el análisis cuantitativo (los números) con el criterio cualitativo (la estrategia).
+        </p>
+        <p class="fragment" style="color: #eee; background-color: rgba(0,0,0,0.6); padding: 12px 20px; border-radius: 8px; font-size: 0.6em; max-width: 85%; line-height: 1.4;">
+            Una mala decisión de localización puede <strong>condenar un proyecto</strong> antes de que comience.
+        </p>
+    </div>
+</section>
+
+      <section data-transition="fade" data-background-image="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto-format&fit=crop" data-background-opacity="0.3" data-background-color="#000">
+        <h2 style="color: #fff;">Gracias</h2>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+  <script>
+    // Configuración de Reveal.js
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      transition: 'slide',
+      // Otras configuraciones
+      // center: false,
+    });
+  </script>
+</body>
+
+</html>
